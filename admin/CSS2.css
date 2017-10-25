@@ -1,0 +1,21 @@
+body {
+	background-color: #f45898;
+	font-family: sans-serif;
+}
+
+.messouter {
+	background-color: #f4c633;
+	border-radius: 10px;
+	width: 50%;
+	padding: 10px;
+	margin-left: 50px;
+}
+
+.messbox {
+	background-color: #eaf632;
+	padding: 7px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+}
+

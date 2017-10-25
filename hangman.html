@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hangman</title>
+    <meta charset="utf-8" />
+
+    <script
+              src="https://code.jquery.com/jquery-3.1.1.min.js"
+              integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+              crossorigin="anonymous">
+    </script>
+
+    <style>
+        .letters {
+            width: 20px;
+            height: 20px;
+            border-bottom: 2px solid black;
+            display: inline-block;
+            text-align: center;
+        }
+
+        section {
+            margin-left: 15%;
+            margin-top: 50px;
+        }
+
+        .wrong {
+            text-decoration: line-through;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+        }
+
+        #winning {
+            background-color: #a43db2;
+            color: yellow;
+            border-radius: 3px;
+            padding: 3px;
+            display: none;
+            width: 20%;
+            text-align: center;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <section>
+
+        <h3>Välkommen till Hangman!</h3>
+
+        <br />
+
+
+        Skriv en bokstav: <input id="guess" />
+        <input type="submit" id="send" value="Gissa!" />
+
+
+        <br />
+        <br />
+        <br />
+
+        <div class="letters" id="letter1"></div>
+        <div class="letters" id="letter2"></div>
+        <div class="letters" id="letter3"></div>
+        <div class="letters" id="letter4"></div>
+        <div class="letters" id="letter5"></div>
+        <div class="letters" id="letter6"></div>
+
+
+        <br />
+        <br />
+
+        <div class="wrong" id="wrong1"></div>
+        <div class="wrong" id="wrong2"></div>
+        <div class="wrong" id="wrong3"></div>
+        <div class="wrong" id="wrong4"></div>
+        <div class="wrong" id="wrong5"></div>
+        <div class="wrong" id="wrong6"></div>
+        <div class="wrong" id="wrong7"></div>
+        <div class="wrong" id="wrong8"></div>
+        <div class="wrong" id="wrong9"></div>
+        <div class="wrong" id="wrong10"></div>
+
+
+        <br />
+        <br />
+
+        <div id="winning"></div>
+
+
+
+    </section>
+
+    <script>
+
+        
+       
+        var x = 1
+         
+
+            $("#send").click(function(){
+
+                if($("#guess").val() == "s" || $("#guess").val() == "S") {
+                    $("#letter1").html("S");
+                }
+                else if($("#guess").val() == "y" || $("#guess").val() == "Y") {
+                    $("#letter2").html("Y");
+                }
+                else if($("#guess").val() == "n" || $("#guess").val() == "N") {
+                    $("#letter3").html("N");
+                }
+                else if($("#guess").val() == "k" || $("#guess").val() == "K") {
+                    $("#letter4").html("K");
+                }
+                else if($("#guess").val() == "o" || $("#guess").val() == "O") {
+                    $("#letter5").html("O");
+                }
+                else if($("#guess").val() == "p" || $("#guess").val() == "P") {
+                    $("#letter6").html("P");
+                }
+
+                else {
+                    var id = "wrong" + x;
+                    
+
+
+                    document.getElementById(id).innerHTML = $("#guess").val().toUpperCase();
+                    x++;
+
+                    if (x == 11) {
+                        window.location.href = "lost.html";
+                    }
+
+                     
+                }
+
+                if ($("#letter1").html() == "S" && $("#letter2").html() == "Y" && $("#letter3").html() == "N" && $("#letter4").html() == "K" && $("#letter5").html() == "O" && $("#letter6").html() == "P") {
+            
+
+                    $("#winning").html("Yay, Du vann!"); 
+                    $("#winning").css("display", "block");
+                    }
+
+
+
+        });
+
+
+
+
+    </script>
+
+
+</body>
+</html>
